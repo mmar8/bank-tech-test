@@ -18,6 +18,7 @@ class BankAccount
   end
 
   def withdraw(description, amount)
+    fail "Not enough credit" if amount > @balance
     add_transaction(description, -amount)
     @balance -= amount
   end

@@ -43,5 +43,9 @@ describe BankAccount do
       account.withdraw("Flight", 600)
       expect(account.balance).to eq(2400)
     end
+
+    it 'raises an error if the withdraw amount exceeds balance amount' do
+      expect{account.withdraw("Withdraw", 3001)}.to raise_error "Not enough credit"
+    end
   end
 end

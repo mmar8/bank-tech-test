@@ -8,14 +8,12 @@ describe BankAccount do
   end
 
   describe 'initialize' do
-    it 'No transactions' do
-      expect(account.transactions).to be_empty
-    end
-  end
-
-  describe '#balance' do
     it 'New account has a balance of 0' do
       expect(account.balance).to eq(0)
+    end
+
+    it 'No transactions' do
+      expect(account.transactions).to be_empty
     end
   end
 

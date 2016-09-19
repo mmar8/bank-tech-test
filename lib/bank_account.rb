@@ -1,16 +1,11 @@
 class BankAccount
-  attr_reader :transactions
+  attr_reader :balance, :transactions
 
-  def initialize
+  EMPTY_ACCOUNT = 0
+
+  def initialize(balance = EMPTY_ACCOUNT)
+    @balance = balance
     @transactions = []
-  end
-
-  def balance
-    balance = 0
-    @transactions.each do |transaction|
-      balance += transaction[:amount]
-    end
-    return balance
   end
 
   def add_transaction(description, amount)
@@ -19,9 +14,11 @@ class BankAccount
 
   def deposit(description, amount)
     add_transaction(description, amount)
+    @balance += amount
   end
 
   def withdraw(description, amount)
     add_transaction(description, -amount)
+    @balance -= amount
   end
 end

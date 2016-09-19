@@ -14,7 +14,7 @@ class BankAccount
   end
 
   def add_transaction(description, amount)
-    @transactions.push(date: Time.now.strftime("%d-%m-%Y"), description: description, amount: amount)
+    @transactions.push(date: Time.now, description: description, amount: amount)
   end
 
   def deposit(description, amount)
